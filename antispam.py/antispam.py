@@ -59,4 +59,6 @@ async def on_message(message):
     await bot.process_commands(message)
 
 # ضع توكن بوت الحماية هنا
-bot.run("MTU1NTkzMzUyMjA0NzQwMjA2NA.GO1mjf.2-G9igZTPKIV6KeAAEJjTXd7-9H8D44MosVDmc")
+import os
+
+bot.run(os.getenv("b829af2ac471d61222c6a9786e8379dafdb55a83ea3cb9f0a5fcd5a91bf74440"))
