@@ -7,9 +7,12 @@ from collections import defaultdict
 intents = discord.Intents.default()
 intents.members = True          # مطلوب لتتبع انضمام الأعضاء
 intents.message_content = True  # مطلوب لقراءة الرسائل ومنع السبام
-
 bot = commands.Bot(command_prefix="!", intents=intents)
 
+@bot.event
+async def on_ready():
+    await bot.change_presence(status=discord.Status.online)
+    print(f'Logged in as {bot.user}')
 # ==========================================
 # 1. إعدادات نظام التحقق والتأكيد (Verification)
 # ==========================================
