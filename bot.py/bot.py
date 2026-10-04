@@ -133,4 +133,4 @@ async def on_ready():
     print("🛡️ نظام الحماية والتحقق يعمل الآن بكفاءة.")
 
 # ضع التوكن الخاص ببوتك هنا
-bot.run("MTU1NTkxNDE2NDM5ODk4MTEzMA.GlONwq.WeqP-FH0_T3iDf2RY2NU_h6eaUeMVbxV3Acjb4")
+bot.run("MTU1NTkxNDE2NDM5ODk4MTEzMA.Ga2KSt.JHvAMb81W3gu9ABGv9nbTVfScQrQq51gqkqtEw")
