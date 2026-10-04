@@ -59,6 +59,7 @@ async def on_message(message):
     await bot.process_commands(message)
 
 # ضع توكن بوت الحماية هنا
+
 import os
 
-bot.run(os.getenv("b829af2ac471d61222c6a9786e8379dafdb55a83ea3cb9f0a5fcd5a91bf74440"))
+bot.run(os.getenv("ANTISPAM_TOKEN"))
