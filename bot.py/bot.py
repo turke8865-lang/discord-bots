@@ -2,7 +2,36 @@ import discord
 from discord.ext import commands
 import time
 from collections import defaultdict
+from http.server import BaseHTTPRequestHandler, HTTPServer
+import threading
+import os
 
+# --- خادم الويب للاستجابة لـ UptimeRobot ---
+class KeepAliveHandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.send_header('Content-type', 'text/html')
+        self.end_headers()
+        self.wfile.write(b"Bot is alive!")
+
+    def do_HEAD(self):
+        self.send_response(200)
+        self.send_header('Content-type', 'text/html')
+        self.end_headers()
+
+def run_web_server():
+    port = int(os.environ.get("PORT", 8080))
+    server = HTTPServer(('0.0.0.0', port), KeepAliveHandler)
+    server.serve_forever()
+
+threading.Thread(target=run_web_server, daemon=True).start()
+# ---------------------------------------------
+
+# إعداد الصلاحيات (Intents)
+intents = discord.Intents.default()
+intents.members = True
+intents.message_content = True
+bot = commands.Bot(command_prefix="!", intents=intents)
 # إعداد الصلاحيات (Intents)
 intents = discord.Intents.default()
 intents.members = True          # مطلوب لتتبع انضمام الأعضاء
